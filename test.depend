@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1550136793 source:w:\projet mo\test\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pile.h"
+
+1550136788 w:\projet mo\test\pile.h
+
+1550138302 source:w:\projet mo\test\pile.c
+	<stdio.h>
+	<stdlib.h>
+	"pile.h"
+
