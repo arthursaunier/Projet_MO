@@ -4,7 +4,7 @@
 typedef struct Element Element;
 struct Element
 {
-    int nombre;
+    char position[4][5];
     Element *suivant;
 };
 
@@ -15,7 +15,7 @@ struct Pile
 };
 
 Pile *initialiser();
-void empiler(Pile *pile, int nvNombre);
+void empiler(Pile *pile, char nvPosition[4][5]);
 int depiler(Pile *pile);
 void afficherPile(Pile *pile);
 

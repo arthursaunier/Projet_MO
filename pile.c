@@ -8,22 +8,26 @@ Pile *initialiser()
     pile->premier = NULL;
 }
 
-void empiler(Pile *pile, int nvNombre)
+void empiler(Pile *pile, char nvPosition[4][5])
 {
+    char i =0;
     Element *nouveau = malloc(sizeof(*nouveau));
     if (pile == NULL || nouveau == NULL)
     {
         exit(EXIT_FAILURE);
     }
+    for(i=0; i<4;i++)
+    {
+        nouveau->position[i][1] = nvPosition[i][1];
+    }
 
-    nouveau->nombre = nvNombre;
     nouveau->suivant = pile->premier;
     pile->premier = nouveau;
 }
 
 int depiler(Pile *pile)
 {
-    int nombreDepile = 0;
+    char positionDepile = 0;
     Element *elementDepile = pile->premier;
     if (pile == NULL)
     {
@@ -33,12 +37,12 @@ int depiler(Pile *pile)
 
     if (pile != NULL && pile->premier != NULL)
     {
-        nombreDepile = elementDepile->nombre;
+        positionDepile = elementDepile->position;
         pile->premier = elementDepile->suivant;
         free(elementDepile);
     }
 
-    return nombreDepile;
+    return positionDepile;
 }
 
 void afficherPile(Pile *pile)
@@ -51,7 +55,7 @@ void afficherPile(Pile *pile)
 
     while (actuel != NULL)
     {
-        printf("%d\n", actuel->nombre);
+        printf("%d\n", actuel->position);
         actuel = actuel->suivant;
     }
 
